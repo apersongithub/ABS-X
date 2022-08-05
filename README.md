@@ -15,6 +15,8 @@ Chromedriver and Chrome
 
 Go to the main file and at the top is the configuration.
 
-There, you can add you temporarily account emails (https://temp-mail.org/) and passwords. and modify other things...
+There, you can add you temporarily account emails (https://temp-mail.org/ or other providers) and passwords. and modify other things...
 
 You need to put the file path of your chromedriver in the config.
+
+more info in config please read the top of the python file
