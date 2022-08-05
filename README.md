@@ -1,7 +1,7 @@
 # ABS-X
 An updated version of ABS with python web automation and JavaScript.
 
-**Requirements:**
+# Requirements
 
 Python
 
@@ -11,7 +11,7 @@ Chromedriver and Chrome
 
 
 
-**How to use:**
+# How to use
 
 Go to the main file and at the top is the configuration.
 
