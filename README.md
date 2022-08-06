@@ -20,3 +20,5 @@ There, you can add you temporarily account emails (https://temp-mail.org/ or oth
 You need to put the file path of your chromedriver in the config.
 
 more info in config please read the top of the python file
+
+**MAKE SURE TO USE // FOR FILES. EXAMPLE: C://desktop//example**
