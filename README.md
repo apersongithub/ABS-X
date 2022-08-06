@@ -9,6 +9,8 @@ Selenium
 
 Chromedriver and Chrome
 
+An IDE like **Visual Studio Code**
+
 
 
 # How to use
