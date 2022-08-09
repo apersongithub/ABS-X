@@ -28,3 +28,5 @@ You need to put the file path of your chromedriver in the config.
 more info in config please read the top of the python file
 
 **MAKE SURE TO USE // WHEN MENTIONING FILE LOCATIONS. EXAMPLE: C://desktop//example**
+
+**MAKE SURE TO COMPLETE THE WELCOME TOUR ON ALL VPNS BEFORE USE. (Californa, Canada, United Kingdom) **
