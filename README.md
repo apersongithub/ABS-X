@@ -13,6 +13,8 @@ An IDE like **Visual Studio Code**
 
 1-5 Microsoft Accounts
 
+Pypresence (for discord rpc)
+
 
 
 
