@@ -49,8 +49,9 @@ more info in config please read the top of the python file
 
 **MAKE SURE TO USE // WHEN MENTIONING FILE LOCATIONS. EXAMPLE: C://desktop//example**
 
-**MAKE SURE TO COMPLETE THE WELCOME TOUR ON ALL VPNS BEFORE USE. (Californa, Canada, United Kingdom)**
+**MAKE SURE TO COMPLETE THE WELCOME TOUR ON ALL VPNS BEFORE USE. (Californa, Canada, United Kingdom)** ![image](https://user-images.githubusercontent.com/72956230/183970107-0f6b718d-1bd2-49f5-b9bc-523d6b00f796.png)
 
+This image is how the welcometour looks like.
 
 # Notes
 This bot runs for 15 minutes per account.
