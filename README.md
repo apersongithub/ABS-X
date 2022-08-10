@@ -27,6 +27,8 @@ Multi-Account Management
 
 Discord RPC
 
+Loops until program stops
+
 VPN (Auto Switching)
 
 
