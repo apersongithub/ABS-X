@@ -33,6 +33,8 @@ Loops until program stops
 
 VPN (Auto Switching)
 
+Low End PC/Slow Internet Mode
+
 
 
 # How to use
@@ -48,3 +50,8 @@ more info in config please read the top of the python file
 **MAKE SURE TO USE // WHEN MENTIONING FILE LOCATIONS. EXAMPLE: C://desktop//example**
 
 **MAKE SURE TO COMPLETE THE WELCOME TOUR ON ALL VPNS BEFORE USE. (Californa, Canada, United Kingdom)**
+
+
+# Notes
+This bot runs for 15 minutes per account.
+There is/will be a Low End PC/Slow Internet Mode so the bot doesn't do everything very fast which can cause errors for slower PCs.
