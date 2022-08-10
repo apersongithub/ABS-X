@@ -54,4 +54,5 @@ more info in config please read the top of the python file
 
 # Notes
 This bot runs for 15 minutes per account.
+
 There is/will be a Low End PC/Slow Internet Mode so the bot doesn't do everything very fast which can cause errors for slower PCs.
