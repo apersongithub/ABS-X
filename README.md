@@ -3,17 +3,19 @@ An updated version of ABS with python web automation and JavaScript.
 
 # Requirements
 
-Python
+Python https://www.python.org/downloads/
 
-Selenium
+Selenium https://pypi.org/project/selenium/
 
-Chromedriver and Chrome
+Chromedriver https://chromedriver.storage.googleapis.com/index.html?path=104.0.5112.79/
 
-An IDE like **Visual Studio Code**
+Chrome https://www.google.com/chrome/
+
+An IDE like **Visual Studio Code** https://code.visualstudio.com/Download
 
 1-5 Microsoft Accounts
 
-Pypresence (for discord rpc)
+Pypresence (for discord rpc) https://pypi.org/project/pypresence/
 
 # Features
 
