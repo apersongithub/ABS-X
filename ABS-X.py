@@ -7,19 +7,24 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.common.exceptions import NoSuchElementException, TimeoutException, ElementNotInteractableException, UnexpectedAlertPresentException, NoAlertPresentException
+from pypresence import Presence
+import time
+
+    
 #\\CONFIG\\
 
-#beta v0.0.1
+#beta v1.0.0
 
 #dm a person#2664 if something doesnt work
 
 #chromedriver path
-dpath ='C:/driver/path'
+dpath ='C:\\path'
 
 #extensions path
-ABS = 'C:/extension/path.zip'
-ABS_VPN = 'C:/extension/path.zip'
-MS = 'C:/extension/path.zip'
+ABS = 'C:\\extension\\path'
+ABS_VPN = 'C:\\extension\\path'
+MS = 'C:\\extension\\path'
 
 #accounts:
 account1 = 'example@gmail.com'
@@ -35,13 +40,20 @@ password3 = 'example'
 password4 = 'example'
 password5 = 'example'
 
-#giftcard link
-giftcard = 'microsoft.com/example/giftcard/'
+#RPC
+Heading1 = "using a bot to"
+Heading2 = "grind microsoft rewards"
 
 #no need to worry about the code below but u can read it if u like its not organized at all, i will do it later
 
 #\\END OF CONFIG\\
 
+while True:  # The presence will stay on as long as the program is running
+    rpc = Presence("1006684699042775153")
+    rpc.connect()
+    rpc.update(details=Heading1,state=Heading2,large_image="abs-x2",start=int(20),buttons=[{"label": "Source", "url": "https://github.com/apersongithub/ABS-X"}, {"label": "Server", "url": "https://discord.gg/TFkNuXzGGx"}])
+    break
+print('finished with rpc')
 
 #object of Options class
 op = Options()
@@ -57,11 +69,11 @@ options=op)
 driver.maximize_window()
 #launch browser
 driver.get('chrome-extension://nhiphjnpfaoagnfffcihodojonieglkk/popup.html')
-time.sleep(0.1)
+time.sleep(0.9)
 driver.switch_to.window(driver.window_handles[1])
 driver.close()
 driver.switch_to.window(driver.window_handles[0])
-time.sleep(0.1)
+time.sleep(0.9)
 vpn1button = driver.find_element("xpath", '//*[@id="_fastdefult"]/li[2]')
 vpn1button.click()
 #1
@@ -88,13 +100,13 @@ signintext = driver.find_element("xpath", '//*[@id="i0116"]')
 signintext.send_keys(account1)
 time.sleep(1.5)
 mssbutton = driver.find_element("xpath", '//*[@id="idSIButton9"]')
+time.sleep(1.5)
 mssbutton.click()
 time.sleep(1.5)
 driver.find_element(By.ID, "i0118").send_keys(password1)
+time.sleep(1.5)
 driver.find_element(By.ID, "idSIButton9").click()
-driver.get('https://rewards.microsoft.com/welcome/')
-rbbutton = driver.find_element("xpath", '//*[@id="start-earning-rewards-link"]')
-rbbutton.click()
+
 time.sleep(1)
 window_before = driver.window_handles[0]
 
@@ -102,17 +114,13 @@ time.sleep(2)
 driver.get('https://rewards.microsoft.com/')
 time.sleep(2)
 driver.get('https://bing.com/')
-time.sleep(2)
 driver.get('https://rewards.microsoft.com/')
 time.sleep(5)
-driver.get('https://rewards.microsoft.com/welcometour')
-time.sleep(1)
-driver.find_element(By.CSS_SELECTOR, "#modal-host > div:nth-child(2) > button").click()
-time.sleep(1.5)
 driver.execute_script('''document.body.style.zoom = "100%";''')
 reward1 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[1]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
 reward1.click()
 time.sleep(42)
+driver.switch_to.window(driver.window_handles[1])
 driver.close()
 driver.switch_to.window(window_before)
 time.sleep(1.9)
@@ -132,6 +140,13 @@ driver.switch_to.window(window_before)
 time.sleep(1.9)
 reward4 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[1]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
 reward4.click()
+driver.switch_to.window(driver.window_handles[1])
+time.sleep(42)
+driver.close()
+driver.switch_to.window(window_before)
+time.sleep(1.9)
+reward412 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[4]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
+reward412.click()
 driver.switch_to.window(driver.window_handles[1])
 time.sleep(42)
 driver.close()
@@ -158,14 +173,7 @@ time.sleep(42)
 driver.close()
 driver.switch_to.window(window_before)
 time.sleep(1.9)
-reward8 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[9]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
-reward8.click()
-driver.switch_to.window(driver.window_handles[1])
-time.sleep(42)
-driver.close()
-s = driver.find_element("xpath", '/html/body/div[6]/div[2]/button')
-s.click()
-time.sleep(1.9)
+print('ok0')
 reward9 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[10]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
 reward9.click()
 driver.switch_to.window(driver.window_handles[1])
@@ -193,6 +201,9 @@ driver.switch_to.window(driver.window_handles[1])
 time.sleep(42)
 driver.close()
 driver.switch_to.window(window_before)
+#1.5 
+print('ok')
+
 time.sleep(1.9)
 reward13 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[12]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
 reward13.click()
@@ -205,19 +216,15 @@ driver.get('chrome-extension://ipbgaooglppjombmbgebgmaehjkfabme/popup.html')
 startsearch = driver.find_element("xpath", '/html/body/div[5]/input[1]')
 startsearch.click()
 
-time.sleep(45)
-driver.switch_to.window(driver.window_handles[1])
-driver.close()
-driver.switch_to.window(driver.window_handles[0])
+time.sleep(190)
+
 driver.get('chrome-extension://nhiphjnpfaoagnfffcihodojonieglkk/popup.html')
 vpnagain = driver.find_element("xpath", '/html/body/div/div[3]/ul/li[3]')
 vpnagain.click()
-#2
+#2 
+print('nice')
 time.sleep(1.9)
-driver.get('https://rewards.microsoft.com/welcometour')
-time.sleep(8)
-driver.find_element(By.CSS_SELECTOR, "#modal-host > div:nth-child(2) > button").click()
-time.sleep(1.5)
+driver.get('https://rewards.microsoft.com/')
 reward1 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[1]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
 reward1.click()
 driver.switch_to.window(driver.window_handles[1])
@@ -225,20 +232,16 @@ time.sleep(42)
 driver.close()
 driver.switch_to.window(window_before)
 time.sleep(1.9)
-reward2 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[2]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
-reward2.click()
-driver.switch_to.window(driver.window_handles[1])
-time.sleep(42)
-driver.close()
-driver.switch_to.window(window_before)
-time.sleep(1.9)
-reward3 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[3]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
-reward3.click()
-driver.switch_to.window(driver.window_handles[1])
-time.sleep(42)
-driver.close()
-driver.switch_to.window(window_before)
-time.sleep(1.9)
+try:
+    reward3 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[3]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
+    reward3.click()
+    driver.switch_to.window(driver.window_handles[1])
+    time.sleep(42)
+    driver.close()
+    driver.switch_to.window(window_before)
+    time.sleep(1.9)
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
 reward4 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[1]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
 reward4.click()
 driver.switch_to.window(driver.window_handles[1])
@@ -262,8 +265,10 @@ driver.switch_to.window(window_before)
 time.sleep(1.9)
 reward7 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[5]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
 reward7.click()
-time.sleep(1.5)
-driver.find_element(By.CSS_SELECTOR, "#modal-host > div:nth-child(2) > button").click()
+driver.switch_to.window(driver.window_handles[1])
+time.sleep(42)
+driver.close()
+driver.switch_to.window(window_before)
 time.sleep(1.9)
 reward8 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[9]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
 reward8.click()
@@ -271,13 +276,16 @@ driver.switch_to.window(driver.window_handles[1])
 time.sleep(42)
 driver.close()
 driver.switch_to.window(window_before)
-reward9 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[10]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
-reward9.click()
-driver.switch_to.window(driver.window_handles[1])
-time.sleep(42)
-driver.close()
-driver.switch_to.window(window_before)
 time.sleep(1.9)
+try:
+    reward9 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[10]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
+    reward9.click()
+    driver.switch_to.window(driver.window_handles[1])
+    time.sleep(42)
+    driver.close()
+    driver.switch_to.window(window_before)
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
 reward10 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[11]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
 reward10.click()
 driver.switch_to.window(driver.window_handles[1])
@@ -292,38 +300,52 @@ time.sleep(42)
 driver.close()
 driver.switch_to.window(window_before)
 time.sleep(1.9)
-reward12 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[13]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
-reward12.click()
-driver.switch_to.window(driver.window_handles[1])
-time.sleep(42)
-driver.close()
-driver.switch_to.window(window_before)
-time.sleep(1.9)
-reward13 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[12]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
-reward13.click()
-driver.switch_to.window(driver.window_handles[1])
-time.sleep(42)
-driver.close()
-driver.switch_to.window(window_before)
-time.sleep(1.9)
+try:
+    reward12 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[13]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
+    reward12.click()
+    driver.switch_to.window(driver.window_handles[1])
+    time.sleep(42)
+    driver.close()
+    driver.switch_to.window(window_before)
+    time.sleep(1.9)
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
+    reward13 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[17]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
+    reward13.click()
+    driver.switch_to.window(driver.window_handles[1])
+    time.sleep(42)
+    driver.close()
+    driver.switch_to.window(window_before)
+    time.sleep(1.9)
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
 driver.get('chrome-extension://ipbgaooglppjombmbgebgmaehjkfabme/popup.html')
 startsearch = driver.find_element("xpath", '/html/body/div[5]/input[1]')
 startsearch.click()
-time.sleep(120)
+
+time.sleep(190)
 driver.get('https://bing.com/')
 time.sleep(45)
-driver.switch_to.window(driver.window_handles[1])
-driver.close()
-driver.switch_to.window(driver.window_handles[0])
+driver.get('chrome-extension://nhiphjnpfaoagnfffcihodojonieglkk/popup.html')
+time.sleep(1.9)
+vpnagain = driver.find_element("xpath", '/html/body/div/div[3]/ul/li[3]')
+vpnagain.click()
+#2 
+print('nice')
+
+driver.get('https://bing.com/')
+time.sleep(1.5)
 driver.get('chrome-extension://nhiphjnpfaoagnfffcihodojonieglkk/popup.html')
 vpnagain = driver.find_element("xpath", '/html/body/div/div[3]/ul/li[4]')
 vpnagain.click()
 #3
+print('nice32') 
 time.sleep(1.9)
-driver.get('https://rewards.microsoft.com/welcometour')
-time.sleep(8)
-driver.find_element(By.CSS_SELECTOR, "#modal-host > div:nth-child(2) > button").click()
-time.sleep(1.5)
+driver.get('https://rewards.microsoft.com/')
+time.sleep(1.9)
 reward1 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[1]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
 reward1.click()
 driver.switch_to.window(driver.window_handles[1])
@@ -348,7 +370,7 @@ time.sleep(1.9)
 reward4 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[1]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
 reward4.click()
 driver.switch_to.window(driver.window_handles[1])
-time.sleep(3)
+time.sleep(42)
 driver.close()
 driver.switch_to.window(window_before)
 time.sleep(1.9)
@@ -359,10 +381,9 @@ time.sleep(42)
 driver.close()
 driver.switch_to.window(window_before)
 time.sleep(1.9)
+
 reward6 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[3]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
-driver.find_element(By.CSS_SELECTOR, "#modal-host > div:nth-child(2) > button").click()
-time.sleep(1.9)
-reward7 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[5]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
+reward6.click()
 driver.switch_to.window(driver.window_handles[1])
 time.sleep(42)
 driver.close()
@@ -395,27 +416,34 @@ time.sleep(42)
 driver.close()
 driver.switch_to.window(window_before)
 time.sleep(1.9)
-reward12 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[13]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
-reward12.click()
-driver.switch_to.window(driver.window_handles[1])
-time.sleep(42)
-driver.close()
-driver.switch_to.window(window_before)
-time.sleep(1.9)
-reward13 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[12]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
-reward13.click()
-driver.switch_to.window(driver.window_handles[1])
-time.sleep(42)
-driver.close()
-driver.switch_to.window(window_before)
-time.sleep(1.9)
+try:
+    reward12 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[13]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
+    reward12.click()
+    driver.switch_to.window(driver.window_handles[1])
+    time.sleep(42)
+    driver.close()
+    driver.switch_to.window(window_before)
+    time.sleep(1.9)
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
+    reward13 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[12]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
+    reward13.click()
+    driver.switch_to.window(driver.window_handles[1])
+    time.sleep(42)
+    driver.close()
+    driver.switch_to.window(window_before)
+    time.sleep(1.9)
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
 driver.get('chrome-extension://ipbgaooglppjombmbgebgmaehjkfabme/popup.html')
 startsearch = driver.find_element("xpath", '/html/body/div[5]/input[1]')
 startsearch.click()
-time.sleep(120)
-driver.get('https://bing.com/')
-sout = driver.find_element("xpath", '/html/body/div[1]/div/div[3]/header/div[2]/div/a[1]')
+time.sleep(190)
+driver.get('https://support.microsoft.com/en-us/authentication/signout')
+time.sleep(3)
+sout = driver.find_element("xpath", '/html/body/div/form/div/div/div[1]/div[2]/div/div/div/div[3]/div/div/div/div/div')
 sout.click()
-sout2 = driver.find_element("xpath", '/html/body/div[1]/div/div[3]/header/div[2]/div/span[1]/ul/li/a/span[2]')
-sout2.click()
+print('done!')
 #end of account #1 i just gonna copy and paste cus lazy
