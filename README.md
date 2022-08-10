@@ -13,7 +13,7 @@ Chrome **┇** https://www.google.com/chrome/
 
 An IDE like  **Visual Studio Code**  **┇** https://code.visualstudio.com/Download
 
-1-5 Microsoft Accounts
+1-5 Microsoft Accounts **┇** https://signup.live.com/signup
 
 Pypresence (for discord rpc) **┇** https://pypi.org/project/pypresence/
 
