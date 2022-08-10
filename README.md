@@ -15,7 +15,19 @@ An IDE like **Visual Studio Code**
 
 Pypresence (for discord rpc)
 
+# Features
 
+Bing searches with User-Agents
+
+Autonomously completes daily tasks
+
+Headless Mode
+
+Multi-Account Management
+
+Discord RPC
+
+VPN (Auto Switching)
 
 
 
