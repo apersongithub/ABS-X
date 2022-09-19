@@ -14,7 +14,7 @@ import time
     
 #\\CONFIG\\
 
-#beta v1.1.0
+#beta v1.2.0
 
 #dm a person#2664 if something doesnt work
 
@@ -51,7 +51,7 @@ Heading2 = "grind microsoft rewards"
 while True:  # The presence will stay on as long as the program is running
     rpc = Presence("1006684699042775153")
     rpc.connect()
-    rpc.update(details=Heading1,state=Heading2,large_image="abs-x2",start=int(20),buttons=[{"label": "Source", "url": "https://github.com/apersongithub/ABS-X"}, {"label": "Server", "url": "https://discord.gg/TFkNuXzGGx"}])
+    rpc.update(details=Heading1,state=Heading2,large_image="abs-x2",start=int(1),buttons=[{"label": "Source", "url": "https://github.com/apersongithub/ABS-X"}, {"label": "Server", "url": "https://discord.gg/TFkNuXzGGx"}])
     break
 print('finished with rpc')
 
@@ -64,8 +64,7 @@ op.add_extension(MS)
 op.add_argument("--enable-webgl-developer-extensions")
 op.add_argument("--enable-webgl-draft-extensions")
 #set chromedriver.exe path
-driver = webdriver.Chrome(executable_path=dpath,
-options=op)
+driver = webdriver.Chrome(executable_path=dpath,options=op)
 driver.maximize_window()
 #launch browser
 driver.get('chrome-extension://nhiphjnpfaoagnfffcihodojonieglkk/popup.html')
@@ -117,163 +116,223 @@ driver.get('https://bing.com/')
 driver.get('https://rewards.microsoft.com/')
 time.sleep(5)
 driver.execute_script('''document.body.style.zoom = "100%";''')
+
 try:
     reward1 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[1]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
     reward1.click()
-    time.sleep(42)
-    driver.switch_to.window(driver.window_handles[1])
-    driver.close()
-    driver.switch_to.window(window_before)
-    time.sleep(1.9) 
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
 except (NoSuchElementException, ElementNotInteractableException) as e:
     pass
+
+try:
+    driver.switch_to.window(driver.window_handles[1])
+    time.sleep(42)
+    driver.close()
+    driver.switch_to.window(window_before)
+    time.sleep(1.9)
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward2 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[2]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
     reward2.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward3 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[3]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
     reward3.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward4 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[1]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward4.click()
-    driver.switch_to.window(driver.window_handles[1])
-    time.sleep(42)
-    driver.close()
-    driver.switch_to.window(window_before)
-    time.sleep(1.9)
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
 except (NoSuchElementException, ElementNotInteractableException) as e:
     pass
 
 try:
-    reward412 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[4]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
-    reward412.click()
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward412 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[4]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward412.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward5 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[2]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward5.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward6 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[3]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward6.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward7 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[5]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward7.click()
-    driver.switch_to.window(driver.window_handles[1])
-    time.sleep(42)
-    driver.close()
-    driver.switch_to.window(window_before)
-    time.sleep(1.9)
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
 except (NoSuchElementException, ElementNotInteractableException) as e:
     pass
 
-print('ok0')
 try:
-    reward9 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[10]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
-    reward9.click()
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
+except IndexError:
+    print('weather button has been found')
+
+print('ok0')
+
+try:
+    reward9 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[10]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
+    reward9.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
 except (NoSuchElementException, ElementNotInteractableException) as e:
     pass
+
+try:
+    driver.switch_to.window(driver.window_handles[1])
+    time.sleep(42)
+    driver.close()
+    driver.switch_to.window(window_before)
+    time.sleep(1.9)
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward10 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[11]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward10.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward11 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[12]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward11.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
+
 
 try:
     reward12 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[13]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward12.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+    time.sleep(1.9)
+except IndexError:
+    print('weather button has been found')
 
 
 #1.5 
 print('ok')
 
 time.sleep(1.9)
+
 try:
     reward13 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[12]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward13.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
+
 
 time.sleep(1.9)
 driver.get('chrome-extension://ipbgaooglppjombmbgebgmaehjkfabme/popup.html')
@@ -289,136 +348,201 @@ vpnagain.click()
 print('nice')
 time.sleep(1.9)
 driver.get('https://rewards.microsoft.com/')
+
 try:
     reward1 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[1]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
     reward1.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
+
 
 try:
     reward3 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[3]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
     reward3.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward4 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[1]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward4.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward5 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[2]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward5.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
+
 
 try:
     reward6 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[3]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward6.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward7 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[5]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward7.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward8 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[9]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward8.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward9 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[10]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward9.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+    time.sleep(1.9)
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward10 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[11]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward10.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward11 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[12]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward11.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward12 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[13]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward12.click()
-    driver.switch_to.window(driver.window_handles[1])
-    time.sleep(42)
-    driver.close()
-    driver.switch_to.window(window_before)
-    time.sleep(1.9)
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
 except (NoSuchElementException, ElementNotInteractableException) as e:
     pass
 
 try:
-    reward13 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[17]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
-    reward13.click()
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
+except IndexError:
+    print('weather button has been found')
+
+try:
+    reward13 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[17]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
+    reward13.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
 except (NoSuchElementException, ElementNotInteractableException) as e:
     pass
+
+try:
+    driver.switch_to.window(driver.window_handles[1])
+    time.sleep(42)
+    driver.close()
+    driver.switch_to.window(window_before)
+    time.sleep(1.9)
+except IndexError:
+    print('weather button has been found')
+
 
 driver.get('chrome-extension://ipbgaooglppjombmbgebgmaehjkfabme/popup.html')
 startsearch = driver.find_element("xpath", '/html/body/div[5]/input[1]')
@@ -444,136 +568,200 @@ print('nice32')
 time.sleep(1.9)
 driver.get('https://rewards.microsoft.com/')
 time.sleep(1.9)
+
 try:
     reward1 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[1]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
     reward1.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward2 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[2]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
     reward2.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward3 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-daily-set-section/div/mee-card-group[1]/div/mee-card[3]/div/card-content/mee-rewards-daily-set-item-content/div/a/div[3]/span')
     reward3.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward4 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[1]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward4.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
+
 
 try:
     reward5 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[2]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward5.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward6 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[3]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward6.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward8 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[9]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward8.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
+
 
 try:
     reward9 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[10]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward9.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward10 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[11]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward10.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward11 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[12]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward11.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
+except (NoSuchElementException, ElementNotInteractableException) as e:
+    pass
+
+try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
-except (NoSuchElementException, ElementNotInteractableException) as e:
-    pass
+except IndexError:
+    print('weather button has been found')
 
 try:
     reward12 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[13]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
     reward12.click()
-    driver.switch_to.window(driver.window_handles[1])
-    time.sleep(42)
-    driver.close()
-    driver.switch_to.window(window_before)
-    time.sleep(1.9)
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
 except (NoSuchElementException, ElementNotInteractableException) as e:
     pass
 
 try:
-    reward13 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[12]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
-    reward13.click()
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(42)
     driver.close()
     driver.switch_to.window(window_before)
     time.sleep(1.9)
+except IndexError:
+    print('weather button has been found')
+
+try:
+    reward13 = driver.find_element("xpath", '/html/body/div[1]/div[2]/main/div/ui-view/mee-rewards-dashboard/main/div/mee-rewards-more-activities-card/mee-card-group/div/mee-card[12]/div/card-content/mee-rewards-more-activities-card-item/div/a/div[3]/span')
+    reward13.click()
+    driver.execute_script('''document.querySelector('#modal-host > div:nth-child(2) > button').click();''')
 except (NoSuchElementException, ElementNotInteractableException) as e:
     pass
+
+try:
+    driver.switch_to.window(driver.window_handles[1])
+    time.sleep(42)
+    driver.close()
+    driver.switch_to.window(window_before)
+    time.sleep(1.9)
+except IndexError:
+    print('weather button has been found')
+
 driver.get('chrome-extension://ipbgaooglppjombmbgebgmaehjkfabme/popup.html')
 startsearch = driver.find_element("xpath", '/html/body/div[5]/input[1]')
 startsearch.click()
