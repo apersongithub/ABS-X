@@ -3,6 +3,8 @@ An updated version of ABS with python web automation and JavaScript.
 
 You can join the discord here https://discord.gg/xdwVuz3q
 
+This project is being discontinued
+
 # Requirements
 
 Python **┇** https://www.python.org/downloads/
