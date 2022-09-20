@@ -3,7 +3,7 @@ An updated version of ABS with python web automation and JavaScript.
 
 You can join the discord here https://discord.gg/xdwVuz3q
 
-This project is being discontinued
+This project is now **discontinued** If you would like to continue it, please DM me on discord at "a person#2664" and I'll give you edit access to the repository
 
 # Requirements
 
